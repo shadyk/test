@@ -48,4 +48,9 @@ public class FileManager {
 	        w.append(sb.toString());
 	    }
 	    
+	    
+	    public static void readFromFile(){
+	    	
+	    }
+	    
 }

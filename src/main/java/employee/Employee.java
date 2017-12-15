@@ -17,6 +17,13 @@ public class Employee {
 		this.lastname = lastname;
 		this.yearsOfExperience = yearsOfExperience;
 	}
+	public Employee(String employeeID, String firstname, String lastname, String yearsOfExperience) {
+		super();
+		this.employeeID = Integer.parseInt(employeeID);
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.yearsOfExperience = Integer.parseInt(yearsOfExperience);;
+	}
 
 	public String getFirstname() {
 		return firstname;

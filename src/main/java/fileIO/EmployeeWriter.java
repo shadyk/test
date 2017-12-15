@@ -1,6 +1,9 @@
 package fileIO;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -17,5 +20,23 @@ public class EmployeeWriter {
         }
         writer.flush();
         writer.close();
+    }
+    
+    public static ArrayList<Employee> readFromFile(){
+        String line = "";
+        String cvsSplitBy = ",";
+        ArrayList<Employee> employeeArray = new ArrayList<Employee>();
+        try (BufferedReader br = new BufferedReader(new FileReader(IMPORT_FILENAME))) {
+
+            while ((line = br.readLine()) != null) {
+                String[] lineArray = line.split(cvsSplitBy);
+                Employee emp = new Employee(lineArray[0],lineArray[1],lineArray[2],lineArray[3]);
+                employeeArray.add(emp);
+            }
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        	return employeeArray;
     }
 }

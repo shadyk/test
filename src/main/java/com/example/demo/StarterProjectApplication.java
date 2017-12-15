@@ -26,10 +26,7 @@ public class StarterProjectApplication {
 		employeeDAO = (EmployeeDAO) context.getBean("employeeDAO");
 		context.close();
 		StarterProjectApplication.showMainScanner();
-
-		
 //		context = new ClassPathXmlApplicationContext("employeeBean.xml");
-//		
 //		Employee e1 = context.getBean("emp1",Employee.class);
 //		Employee e2 = context.getBean("emp2",Employee.class);
 //		System.out.println(e1);
@@ -80,7 +77,17 @@ public class StarterProjectApplication {
 	}
 	
 	public static void importFile(){
-		
+		ArrayList<Employee> employeeArray = EmployeeWriter.readFromFile();
+        try {
+        	for (Employee emp : employeeArray){
+        		employeeDAO.insert(emp);
+        	}
+        }
+        catch (Exception e){
+        	System.out.println("Error importing data " + e.getMessage() );
+        }
+        System.out.println("Succes!");
+	   StarterProjectApplication.showMainScanner();
 	}
 	
 	public static void addEmployee(){
