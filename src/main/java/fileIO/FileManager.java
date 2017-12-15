@@ -1,10 +1,8 @@
 package fileIO;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.io.Writer;
 import java.util.List;
-import java.io.FileWriter;
 
 public class FileManager {
 	 private static final char DEFAULT_SEPARATOR = ',';
@@ -29,7 +27,6 @@ public class FileManager {
 	    public static void writeLine(Writer w, List<String> values, char separators, char customQuote) throws IOException {
 
 	        boolean first = true;
-
 	        //default customQuote is empty
 	        if (separators == ' ') {
 	            separators = DEFAULT_SEPARATOR;
@@ -50,4 +47,5 @@ public class FileManager {
 	        sb.append("\n");
 	        w.append(sb.toString());
 	    }
+	    
 }

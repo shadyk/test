@@ -27,7 +27,7 @@ public class EmployeeDAOImpl implements EmployeeDAO
 			ps.setInt(1, employee.getEmployeeID());
 			ps.setString(2, employee.getFirstname());
 			ps.setString(3, employee.getLastname());
-			ps.setInt(4, 1);
+			ps.setInt(4, employee.getYearsOfExperience());
 
 			ps.executeUpdate();
 			ps.close();

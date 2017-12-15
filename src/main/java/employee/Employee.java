@@ -82,15 +82,5 @@ public class Employee {
 	public String toString() {
 		return "id : " +this.employeeID + " \n fullname : " + this.firstname + " " + this.lastname;
 		
-	}
-	
-	
-    public void writeEmployee() throws Exception {
-        String csvFile = "/Users/shadyk/Desktop/employees.csv";
-        FileWriter writer = new FileWriter(csvFile);
-        FileManager.writeLine(writer, Arrays.asList("a", "b", "c", "d"));
-        writer.flush();
-        writer.close();
-    }
-	
+	}	
 }
