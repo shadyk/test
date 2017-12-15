@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!-- define all of the beans we are using -->
+<beans>
+	
+	
+	<bean id="emp1" class="com.emcrey.Employee">
+		<property name="employeeID" value="101" />
+		<property name="firstname" value="FName1" />
+		<property name="lastname" value="LName1" />
+		<property name="universityDegree" value="universityDegree" />
+		<property name="yearsOfExperience" value="2" />
+		<property name="dateOfEmployment" value="11/11/11" />
+		<property name="wifeName" value="wifeName1" />
+		<property name="wifeOccupation" value="wifeOccupation1" />
+		<property name="maritalStatusId" value="2" />
+		<property name="numberOfKids" value="1" />
+	</bean>
+	
+		<bean id="emp2" class="com.emcrey.Employee">
+		<property name="employeeID" value="202" />
+		<property name="firstname" value="FName2" />
+		<property name="lastname" value="LName2" />
+		<property name="universityDegree" value="universityDegree" />
+		<property name="yearsOfExperience" value="2" />
+		<property name="dateOfEmployment" value="22/22/22" />
+		<property name="wifeName" value="wifeName2" />
+		<property name="wifeOccupation" value="wifeOccupation2" />
+		<property name="maritalStatusId" value="2" />
+		<property name="numberOfKids" value="2" />
+	</bean>
+</beans>
