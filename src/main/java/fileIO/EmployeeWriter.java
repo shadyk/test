@@ -6,13 +6,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import org.apache.log4j.Logger;
 
 import employee.Employee;
 
 public class EmployeeWriter {
 	static String EXPORT_FILENAME = "/Users/shadyk/Desktop/employees_export.csv"; 
 	static String IMPORT_FILENAME = "/Users/shadyk/Desktop/employees_import.csv"; 
-	
+	final static Logger logger = Logger.getLogger(EmployeeWriter.class);
+
     public static void writeEmployees(ArrayList<Employee> list) throws Exception {
         FileWriter writer = new FileWriter(EXPORT_FILENAME);
         for (Employee e : list){
@@ -35,7 +37,8 @@ public class EmployeeWriter {
             }
         } 
         catch (IOException e) {
-            e.printStackTrace();
+ 		   logger.error("IO Error ");
+ 		   e.printStackTrace();
         }
         	return employeeArray;
     }

@@ -1,10 +1,5 @@
 package employee;
 
-import java.io.FileWriter;
-import java.util.Arrays;
-
-import fileIO.FileManager;
-
 public class Employee {
 	String firstname, lastname, universityDegree,dateOfEmployment,wifeName,wifeOccupation;
 	int maritalStatusId,numberOfKids,yearsOfExperience;

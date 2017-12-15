@@ -1,9 +1,11 @@
 package com.example.demo;
 
 
-import org.springframework.context.ApplicationContext;
+import org.apache.log4j.Logger;
+//import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 
 import employee.Employee;
 import employee.EmployeeDAO;
@@ -17,24 +19,25 @@ import java.util.Scanner;
 public class StarterProjectApplication {
 	static Scanner scanner;
 	static EmployeeDAO employeeDAO;
-//	private static ApplicationContext context;
+	final static Logger logger = Logger.getLogger(StarterProjectApplication.class);
 	
 	public static void main(String[] args) {
 		
 		scanner =new Scanner(System.in);
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		employeeDAO = (EmployeeDAO) context.getBean("employeeDAO");
+
+
+		
 		context.close();
 		StarterProjectApplication.showMainScanner();
 //		context = new ClassPathXmlApplicationContext("employeeBean.xml");
 //		Employee e1 = context.getBean("emp1",Employee.class);
 //		Employee e2 = context.getBean("emp2",Employee.class);
-//		System.out.println(e1);
-//		System.out.println(e2.toString());
 	}
 	
 	public static void showMainScanner(){
-		 System.out.println("Hello! Enter number of your transaction: \n1.Export To File\n2.Import From File\n3.Add Employee");
+		logger.info("Hello! Enter number of your transaction: \n1.Export To File\n2.Import From File\n3.Add Employee");
 		   int mainOption = -1;
 		   try {
 			   mainOption=scanner.nextInt();
@@ -50,12 +53,13 @@ public class StarterProjectApplication {
 				StarterProjectApplication.addEmployee();
 				break;
 			default:
-				   System.out.println("Invalid Entry");  
+				logger.error("Invalid Entry");  
 				   break;
 			}
 		   }
 		   catch (InputMismatchException e) {
-			   System.out.println("Invalid Entry");  
+			   logger.error("Invalid Entry");
+			   StarterProjectApplication.showMainScanner();
 		   }
 		   
 		   finally{
@@ -70,9 +74,9 @@ public class StarterProjectApplication {
         	EmployeeWriter.writeEmployees(resultArray);
         }
         catch (Exception e){
-        	System.out.println("Error exporting data " + e.getMessage() );
+        	logger.error("Error exporting data " + e.getMessage());
         }
-        System.out.println("Succes!");
+	   logger.info("Success");
 	   StarterProjectApplication.showMainScanner();
 	}
 	
@@ -84,24 +88,24 @@ public class StarterProjectApplication {
         	}
         }
         catch (Exception e){
-        	System.out.println("Error importing data " + e.getMessage() );
+        	logger.error("Error importing data " + e.getMessage());
         }
-        System.out.println("Succes!");
+	   logger.info("Success");
 	   StarterProjectApplication.showMainScanner();
 	}
 	
 	public static void addEmployee(){
-		System.out.println("Enter Employee id");  
+		logger.info("Enter Employee id");  
 	   int id = scanner.nextInt();
-	   System.out.println("Enter Emp First name");  
+	   logger.info("Enter Emp First name");  
 	   String fname=scanner.next();
-	   System.out.println("Enter Emp Last name");  
+	   logger.info("Enter Emp Last name");  
 	   String lname=scanner.next();  
-	   System.out.println("Enter Years of exp");  
+	   logger.info("Enter Years of exp");  
 	   int years=scanner.nextInt(); 
 	   Employee newEmp = new Employee(id,fname,lname,years);
 	   employeeDAO.insert(newEmp);
-	   System.out.println("Succes!");
+	   logger.info("Succes!");
 	   StarterProjectApplication.showMainScanner();
 	}
 	
