@@ -37,7 +37,7 @@ public class StarterProjectApplication {
 	}
 	
 	public static void showMainScanner(){
-		logger.info("Hello! Enter number of your transaction: \n1.Export To File\n2.Import From File\n3.Add Employee");
+		logger.info("\nHello! Enter number of your transaction: \n1.Export To File\n2.Import From File\n3.Add Employee");
 		   int mainOption = -1;
 		   try {
 			   mainOption=scanner.nextInt();
