@@ -79,7 +79,7 @@ public class EmployeeDAOImpl implements EmployeeDAO
 	}
 
 	public ArrayList<Employee> getAllEmployees() {
-		String sql = "SELECT * FROM TEST";
+		String sql = "SELECT emp.*, jobs.job_title FROM EMPLOYEES emp, JOBS jobs where emp.job_id = jobs.job_id";
 		Connection conn = null;
  
 		try {
@@ -90,10 +90,10 @@ public class EmployeeDAOImpl implements EmployeeDAO
 			ArrayList<Employee> array= new ArrayList<Employee>();
 			while (rs.next()) {
 				employee = new Employee(
-					rs.getInt("EMPID"),
-					rs.getString("FNAME"),
-					rs.getString("LNAME"), 
-					rs.getInt("YEARS_EXPERIENCE")
+					rs.getInt("EMPLOYEE_ID"),
+					rs.getString("first_name") + " "+ rs.getString("last_name"),
+					rs.getString("job_title"), 
+					rs.getInt("EMPLOYEE_ID")
 				);
 				array.add(employee);
 			}
