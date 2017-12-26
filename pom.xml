@@ -2,9 +2,33 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.javacodegeeks.snippets.enterprise</groupId>
-	<artifactId>springexample</artifactId>
+	<artifactId>Assignment</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	<properties>
+		<java-version>1.7.0</java-version>
+		<spring.version>3.2.3.RELEASE</spring.version>
+	</properties>
+
+	  <build>
+	  <pluginManagement>
+	      <plugins>
+	        <plugin>
+	          <groupId>org.apache.maven.plugins</groupId>
+	          <artifactId>maven-compiler-plugin</artifactId>
+	          <version>3.7.0</version>
+	          <configuration>
+	          <source>$(java-version)</source>
+	          <target>$(java-version)</target>
+	          <compilerArgument></compilerArgument>
+	          <showWarnings>true</showWarnings>
+	          <showDeprecation>true</showDeprecation>
+	          </configuration>
+	        </plugin>
+	      </plugins>
+	      </pluginManagement>
+	  </build>
+  
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -38,8 +62,4 @@
 	</dependency>
  	
   	</dependencies>
-
-	<properties>
-		<spring.version>3.2.3.RELEASE</spring.version>
-	</properties>
 </project>
